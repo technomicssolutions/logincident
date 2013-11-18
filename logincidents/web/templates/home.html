@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div align="center">
+        <table class="maintable">
+            <tr>
+                <td></td>
+                <td>
+                    <div align="center">
+                        <table class="maintable">
+                            <tr class="tableselect">
+                                <span class='textcenter'>
+                                    <td align="center">
+                                        <ul class="menu" id="menu2">
+                                            <li>
+                                                <a href="#" class="btn btnpadded">Location</a>
+                                                <ul>
+                                                    <li><a href="#">North</a></li>
+                                                    <li><a href="#">South</a></li>
+                                                    <li><a href="#">Greater London</a></li>
+                                                    <li><a href="#">Other</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td align="center">
+                                        <ul class="menu" id="menu2">
+                                            <li>
+                                                <a href="#" class="btn btnpadded">Division</a>
+                                                <ul>
+                                                    <li><a href="#">Cleaning</a></li>
+                                                    <li><a href="#">Catering</a></li>
+                                                    <li><a href="#">Maintenance</a></li>
+                                                    <li><a href="#">Transport</a></li>
+                                                    <li><a href="#">Other</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td align="center">
+                                        <ul class="menu" id="menu2">
+                                            <li>
+                                                <a href="#" class="btn btnpadded">Time</a>
+                                                <ul>
+                                                    <li><a href="#">This Year</a></li>
+                                                    <li><a href="#">This Month</a></li>
+                                                    <li><a href="#">This Week</a></li>
+                                                    <li><a href="#">Today</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                     </td>
+                                </span>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        	<tr class="graphtitle">
+               <td></td>
+            </tr>
+            <tr>
+                <td style="width:0%"></td>
+        	    <td class="maingraph">
+                   <div id="container" style="min-width: 800px; height: 500px; margin: 0 auto"></div>
+                </td>
+        	    <td class="averages">
+        	       <table class="tableaverages">
+                        <tr>
+        	                <th colspan=5 class="text-center">
+            	               Last Month daily averages:
+            	            </th>
+                        </tr>
+        	            <tr>
+                            <td width=5% align="right">9</td><td>Near miss</td><td align="right">12.4%</td>
+        	            </tr>	
+        	            <tr>
+                            <td align="right">21</td><td>Minor reports</td><td align="right">4.3%</td>
+        	            </tr>	
+        	            <tr>
+                            <td align="right">17</td><td>Major reports</td><td align="right">2.6%</td>
+        	            </tr>	
+        	            <tr>
+                            <td align="right">2</td><td>Other</td><td align="right">2.3%</td>
+        	            </tr>	
+        	       </table>				
+        	    </td>
+            </tr>
+            <tr class="quickselector"></tr>
+            <tr class="recentreports">
+                <td></td>
+                <td>
+                    <div class='textcenter'>
+                        <table width=100%>
+                            <tr>
+                                <td><span class='textcenter'>
+                                    <a href="#" class="btn btnpadded2">2yr</a>
+                                    <a href="#" class="btn btnpadded2">18m</a>
+                                    <a href="#" class="btn btnpadded2">1yr</a>
+                                    <a href="#" class="btn btnpadded2">9m</a>
+                                    <a href="#" class="btn btnpadded2">6m</a>
+                                    <a href="#" class="btn btnpadded2">3m</a>
+                                    <a href="#" class="btn btnpadded2">1m</a>
+                                    <a href="#" class="btn btnpadded2">1w</a>
+                                    <a href="#" class="btn btnpadded2">1d</a>
+                                    <a href="#" class="btn btnpadded2">Today</a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="splitter">
+            <table>
+                <tr>
+                    <td class="btnpadded3">
+                        <h2>Quick Summary</h2>
+                    </td>
+                    <td>
+                        <ul class="menu" id="menu2">
+                            <li>
+                                <a href="#" class="btn btnpadded3">Time</a>
+                                <ul>
+                                    <li><a href="">This Year</a></li>
+                                    <li><a href="">This Month</a></li>
+                                    <li><a href="">This Week</a></li>
+                                    <li><a href="">Today</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2><div id="pie1" style="min-width: 310px; height: 300px; margin: 0 auto"></div></td>
+                    <td><div id="pie2" style="min-width: 310px; height: 300px; margin: 0 auto"></div></td>
+                    <td><div id="pie3" style="min-width: 310px; height: 300px; margin: 0 auto"></div></td>
+                </tr>
+            </table>
+            <br><br>
+        </div>
+    </div>
+{% endblock content%}

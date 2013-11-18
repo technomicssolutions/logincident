@@ -1,57 +1,241 @@
-<!doctype html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
-<html class="no-js" lang="en"> 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        
+	<head>
+		
         {% block title %}
             <title>Logincidents</title>
         {% endblock title %}
-        <meta name="description" content="Logincindents">
-        <meta name="author" content="Logincidents">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/highcharts.js"></script>
+		<script src="/static/js/modules/exporting.js"></script>
+		<link href="/static/css/customstyle.css" type="text/css" rel="stylesheet">
+        <script src="/static/js/dropit.js"></script>
+        <link rel="stylesheet" href="/static/css/dropit.css" type="text/css" />
+		<script type="text/javascript">
 
-        {% block css %}
-            <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
-        {% endblock css %}
-       
-        {% block script %}
-            <script type="text/javascript" src="/static/js/mootools-core-1.4.2-full-compat-yc.js"></script>
-            <script type="text/javascript" src="/static/js/mootools-more-1.4.0.1.js"></script>
-            <script type="text/javascript" src="/static/js/common.js"></script>
-        {% endblock script %}
+$(document).ready(function() {
+    $('.menu').dropit({
+  action: 'hover'
+});
+});
+
+$(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'area'
+            },
+            title: {
+                text: 'Reports submitted <text style="color:#00ade0;">19 September 2012 - 18 June 2013</text> '
+            },
+            subtitle: {
+                text: 'Confidential Data by Logincident'
+            },
+            xAxis: {
+                labels: {
+                    formatter: function() {
+                        return this.value; // clean, unformatted number for year
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Incidents'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 1000 +'k';
+                    }
+                }
+            },
+            tooltip: {
+                pointFormat: '{series.name} reported <b>{point.y:,.0f}</b> in {point.x}'
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 2010,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Near Miss',
+                data: [null, null, null, null, null, 6 , 11, 32, 110, 235, 369, 640,
+                    1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126,
+                    27387, 29459, 31056, 31982, 32040, 31233, 29224, 27342, 26662,
+                    26956, 27912, 28999, 28965, 27826, 25579, 25722, 24826, 24605,
+                    24304, 23464, 23708, 24099, 24357, 24237, 24401, 24344, 23586,
+                    22380, 21004, 17287, 14747, 13076, 12555, 12144, 11009, 10950,
+                    10871, 10824, 10577, 10527, 10475, 10421, 10358, 10295, 10104 ]
+            }, {
+                name: 'Minor Report',
+                data: [null, null, null, null, null, null, null , null , null ,null,
+                5, 25, 50, 120, 150, 200, 426, 660, 869, 1060, 1605, 2471, 3322,
+                4238, 5221, 6129, 7089, 8339, 9399, 10538, 11643, 13092, 14478,
+                15915, 17385, 19055, 21205, 23044, 25393, 27935, 30062, 32049,
+                33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000, 37000,
+                35000, 33000, 31000, 29000, 27000, 25000, 24000, 23000, 22000,
+                21000, 20000, 19000, 18000, 18000, 17000, 16000]
+            }]
+        });
+    });
+
+$(function () {
+    var chart;
+
+    $(document).ready(function () {
+
+    	// Build the chart
+        $('#pie1').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Incident by Type'
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true,
+                    center: ['50%', '50%']
+                }
+            },
+            series: [{
+                                innerSize: '40%',
+                type: 'pie',
+                name: 'Incidents',
+                data: [
+                    ['Near Miss',   45.0],
+                    ['Minor',       26.8],
+                    {
+                        name: 'Major',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Other',    8.5],
+                ]
+            }]
+        });
+        // Build the chart
+        $('#pie2').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Incident by Area'
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                                innerSize: '40%',
+                type: 'pie',
+                name: 'Incident Area',
+                data: [
+                    ['South',   45.0],
+                    ['North',       26.8],
+                    {
+                        name: 'Greater London',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Midlands',    8.5],
+                    ['Others',   0.7]
+                ]
+            }]
+        });
+        // Build the chart
+        $('#pie3').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Incident by Division'
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Division Incidents',
+                innerSize: '40%',
+                data: [
+                    ['Cleaning',   45.0],
+                    ['Catering',       26.8],
+                    {
+                        name: 'Maintenance',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Transport',    8.5],
+                    ['Others',   0.7]
+                ]
+            }]
+        });
+    });
+
+});
+		</script>
+
+
+	</head>
+	<body id="{% block body_id %}base{% endblock body_id %}" class="base" >
+		<div class="header">
+		  <text style="color:#00ade0;">Logincident <b>432</b></text> Reports submitted this week
+		</div>
+		
+		{% block content %}
+        {% endblock content%}
         
-    </head>
+		<div class="footer">
+		<text style="color:#00ade0; padding-left:16%">&copy; Logincident 2013</text>
+            <text style="color:#00ade0; padding-right:15%;float: right">Terms and Conditions | Privacy Policy</text>
+		</div>
 
-    <body id="{% block body_id %}base{% endblock body_id %}">
-        <div class="container" >
-            {% block body %}
-                
-                    {% spaceless %}
-                        <div class="header" >
-                            {% block header %}
-                                <!-- Header -->
-                            {% endblock header %}
-                        </div>
-                        {% block banner %}
-                            <div class="banner" >
-                                <!-- Banner -->
-                            </div>
-                        {% endblock banner %}
-                        <div class="content" >
-                            {% block content %}
-                                <h1>Welcome </h1>
-                            {% endblock content %}
-                        </div>
-                        <div class="footer" >
-                            {% block footer %}
-                               <!-- Footer -->
-                            {% endblock footer %}
-                        </div>
-                    {% endspaceless %}
-                
-            {% endblock body %}
-        </div>       
-    </body>
+		</div>
+	</body>
 </html>

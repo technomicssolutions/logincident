@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters
+END
+prototype-adapter.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/prototype-adapter.js
+END
+standalone-framework.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/standalone-framework.js
+END
+mootools-adapter.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/mootools-adapter.js
+END
+prototype-adapter.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/prototype-adapter.src.js
+END
+standalone-framework.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/standalone-framework.src.js
+END
+mootools-adapter.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/logincident-web/!svn/ver/7/trunk/website/logincident/static/js/adapters/mootools-adapter.src.js
+END
