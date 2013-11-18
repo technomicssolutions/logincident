@@ -66,6 +66,15 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'web', ['InjuryPhotos'])
 
+        # Adding model 'Company'
+        db.create_table(u'web_company', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('majorincident', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['web.MajorIncident'], null=True, blank=True)),
+            ('minorincident', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['web.MinorIncident'], null=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
+        ))
+        db.send_create_signal(u'web', ['Company'])
+
     def backwards(self, orm):
         # Deleting model 'IncidentDetails'
         db.delete_table(u'web_incidentdetails')
@@ -82,7 +91,17 @@ class Migration(SchemaMigration):
         # Deleting model 'InjuryPhotos'
         db.delete_table(u'web_injuryphotos')
 
+        # Deleting model 'Company'
+        db.delete_table(u'web_company')
+
     models = {
+        u'web.company': {
+            'Meta': {'object_name': 'Company'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'majorincident': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['web.MajorIncident']", 'null': 'True', 'blank': 'True'}),
+            'minorincident': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['web.MinorIncident']", 'null': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        },
         u'web.incidentdetails': {
             'Meta': {'object_name': 'IncidentDetails'},
             'address': ('django.db.models.fields.TextField', [], {'max_length': '200'}),

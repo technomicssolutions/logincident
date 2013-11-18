@@ -65,3 +65,8 @@ class InjuryPhotos(models.Model):
     class Meta:
         verbose_name = 'Injury Photos'
         verbose_name_plural = 'Injury Photos'
+
+class Company(models.Model):
+    majorincident = models.ForeignKey(MajorIncident, null = True, blank = True)
+    minorincident = models.ForeignKey(MinorIncident, null = True, blank = True)
+    name = models.CharField('Name', max_length = 50)

@@ -11,8 +11,16 @@
         <meta name="description" content="Logincindents">
         <meta name="author" content="Logincidents">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        {% block css %}
+            <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+        {% endblock css %}
        
-        {% block extrahead %}{% endblock extrahead %}
+        {% block script %}
+            <script type="text/javascript" src="/static/js/mootools-core-1.4.2-full-compat-yc.js"></script>
+            <script type="text/javascript" src="/static/js/mootools-more-1.4.0.1.js"></script>
+            <script type="text/javascript" src="/static/js/common.js"></script>
+        {% endblock script %}
         
     </head>
 
